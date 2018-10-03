@@ -21,9 +21,11 @@ Route::get('details', 'API\UserController@details');
 
 
 
-Route::get('create/ticket','TicketController@create');
 Route::post('create/ticket','TicketController@store');
-Route::get('tickets', 'TicketController@index');
+Route::get('show/tickets','TicketController@show');
+Route::put('update/ticket/{id}','TicketController@update');
+Route::delete('delete/ticket/{id}','TicketController@delete');
+// Route::get('tickets', 'TicketController@index');
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
